@@ -49,6 +49,7 @@ static const Layout layouts[] = {
  	{ "[ ]",      horizgrid },
  	{ "|M|",      centeredmaster },
  	{ ">M>",      centeredfloatingmaster },
+ 	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -94,6 +95,8 @@ static Key keys[] = {
  	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[6]} },
  	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+ 	{ MODKEY,            		        XK_Tab,    cyclelayout,    {.i = -1 } },
+ 	{ MODKEY|ShiftMask,             XK_Tab,    cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
