@@ -47,6 +47,8 @@ static const Layout layouts[] = {
  	{ "[@]",      spiral },
  	{ "[\\]",     dwindle },
  	{ "[ ]",      horizgrid },
+ 	{ "|M|",      centeredmaster },
+ 	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -82,12 +84,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_grave,  view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+  /* Keybindings for choosing a layout */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[5]} },
+ 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[6]} },
+ 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
