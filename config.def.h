@@ -68,6 +68,11 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define XF86AudioMute 0x1008ff12
+#define XF86AudioLowerVolume 0x1008ff11
+#define XF86AudioRaiseVolume 0x1008ff13
+#define XF86MonBrightnessDown 0x1008ff03
+#define XF86MonBrightnessUp 0x1008ff02
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
@@ -117,6 +122,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  /* Special keys (vol & bright) */
+  { 0,                            XF86AudioMute,         spawn, SHCMD("pactl set-sink-mute 1 toggle") },
+  { 0,                            XF86AudioLowerVolume,  spawn, SHCMD("pactl set-sink-volume 1 -5%") },
+  { 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("pactl set-sink-volume 1 +5%") },
+  { 0,                            XF86MonBrightnessDown, spawn, SHCMD("xbacklight -dec 10") },
+  { 0,                            XF86MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 10") },
+  /* Tags */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
